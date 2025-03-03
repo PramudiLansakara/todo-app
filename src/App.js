@@ -1,26 +1,23 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider, useAuth } from "./context/AuthContext";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from './components/ProtectedRoute';
+import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import ToDoPage from "./pages/ToDoPage";
-import Header from "./components/Header";
 
-const ProtectedRoute = ({ children }) => {
-  const { user } = useAuth();
-  return user ? children : <Navigate to="/" />;
-};
-
-function App() {
+const App = () => {
   return (
-    <AuthProvider>
-      <Router>
-        <Header />
+    <Router>
+      <AuthProvider>
         <Routes>
           <Route path="/" element={<LoginPage />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/todo" element={<ProtectedRoute><ToDoPage /></ProtectedRoute>} />
         </Routes>
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </Router>
   );
-}
+};
 
 export default App;
