@@ -5,7 +5,7 @@ const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return null;  // Prevent rendering the route until loading is finished
+    return null;
   }
 
   return user ? children : <Navigate to="/" replace />;

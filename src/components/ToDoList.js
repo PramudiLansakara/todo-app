@@ -11,7 +11,7 @@ const TodoList = ({ tasks, setSelectedTodo, tasksPerPage, page, setPage, totalPa
 
   return (
     <div
-      className={`border p-4 rounded-lg shadow-md bg-gray-100 flex flex-col`}
+      className={`border p-4 shadow-lg rounded-xl bg-gray-100 flex flex-col`}
       style={{ width: "650px", minHeight: "350px" }}
     >
       <h2 className={`font-bold ${type === "in-progress" ? "text-yellow-500" : "text-green-500"} mb-2`}>

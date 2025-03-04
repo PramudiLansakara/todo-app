@@ -4,7 +4,7 @@ import TodoModal from "../components/ToDoDetailsModal";
 import TodoList from "../components/ToDoList";
 import homeImage from "../assets/home-image.jpg";
 import Header from "../components/Header";
-import SliderComponent from "../components/Slider";
+import SliderComponent from "../components/TextSlider";
 
 const TodoPage = () => {
   const [todos, setTodos] = useState([]);
@@ -80,7 +80,7 @@ const TodoPage = () => {
 
       <div className="p-6">
       {/* User Selection and Tasks per page */}
-      <div className="my-4 flex items-center space-x-3">
+      <div className="my-1 flex items-center space-x-3">
         <label className="text-lg font-semibold">Select a user:</label>
         <select
           className="border p-2 rounded-md"
@@ -116,6 +116,7 @@ const TodoPage = () => {
 
       {/* Todo List */}
       <div className="grid grid-cols-2">
+      <div className="flex justify-center items-center h-full py-3">
         <TodoList
           tasks={paginatedInProgress}
           setSelectedTodo={setSelectedTodo}
@@ -125,6 +126,8 @@ const TodoPage = () => {
           totalPages={inProgressTotalPages}
           type="in-progress"
         />
+      </div>
+      <div className="flex justify-center items-center h-full py-3">
         <TodoList
           tasks={paginatedCompleted}
           setSelectedTodo={setSelectedTodo}
@@ -134,6 +137,7 @@ const TodoPage = () => {
           totalPages={completedTotalPages}
           type="completed"
         />
+      </div>
       </div>
       </div>
 
