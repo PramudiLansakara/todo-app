@@ -20,6 +20,10 @@ const TodoPage = () => {
   const [tasksPerPage, setTasksPerPage] = useState(5);
 
   useEffect(() => {
+    document.title = "My TaskTide";
+}, []);
+
+  useEffect(() => {
     const getTodos = async () => {
       try {
         const data = await fetchToDos();

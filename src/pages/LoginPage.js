@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import loginImage from "../assets/login-image.jpg";
 
@@ -25,6 +25,10 @@ const LoginPage = () => {
       login(credentials.username, credentials.password);
     }
   };
+
+  useEffect(() => {
+    document.title = "Login - My TaskTide";
+}, []);
 
   return (
     <div className="flex h-screen w-full">
